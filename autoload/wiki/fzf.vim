@@ -45,7 +45,7 @@ function! wiki#fzf#tags() abort "{{{1
   call fzf#run(fzf#wrap({
         \ 'source': l:results,
         \ 'sink*': funcref('s:accept_tag'),
-        \ 'options': '--expect=ctrl-l --prompt "WikiTags> " '
+        \ 'options': '--preview "echo {} | cut -d: -f2 | xargs cat" --expect=ctrl-l --prompt "WikiTags> " '
         \}))
 endfunction
 

@@ -21,7 +21,7 @@ function! wiki#fzf#pages() abort "{{{1
   call fzf#run(fzf#wrap({
         \ 'source': l:pages,
         \ 'sink*': funcref('s:accept_page'),
-        \ 'options': '-d"¤" --with-nth=-1 --print-query --prompt "WikiPages> " '
+        \ 'options': '--preview "echo {} | cut -d¤ -f1 | xargs -I % cat ./%" -d"¤" --with-nth=-1 --print-query --prompt "WikiPages> " '
         \}))
 endfunction
 
